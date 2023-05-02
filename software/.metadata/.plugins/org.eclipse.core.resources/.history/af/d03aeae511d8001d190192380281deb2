@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <altera_avalon_pio_regs.h>
+#include <alt_types.h>
+#include <sys/alt_alarm.h>
+#include <system.h>
+#include <string.h>
+#include <unistd.h>
+/*#######################################################################
+							//Mini Project//
+- Build a system using Nios II in kit DE10 to connect a LCD 16x2 and an
+H-bridge to control a motor. This system can do the following tasks:
+  + When SW0 is ON, LCD blinks the sentence “Hello World !!!” in the
+    Middle of row 1 with frequency 1Hz. (Using timer)
+  + When SW1 is ON, Nios II controls the motor by sending PWM pulses to
+    the H-bridge. LCD displays the duty cycle and the frequency of PWM
+    pulses.
+ + When SW0 and SW1 are OFF, turn off the system.
+- EXTENSION:
+  + SW1, SW2, SW3 will control the speed of the DC motor based on the PWM
+    Pulses be created by DE-10 kit nano.
+- FILE: miniProject
+#######################################################################*/
+
+/*###################################################
+ 	 	 	 	 LCD 1602
+- Bits: 11
+- Order: RS  RW  E  D7  D6  D5  D4  D3  D2  D1  D0
+- 3 bit control (RS RW E):
+	+ 001: send command
+	+ 101: send data
+	+ EN (1->0): data was sent to LCD
+###################################################*/
+
+/*------------------------------------------------/
+ Name:				lcd_write
+ Description: support lcd_cmd and lcd_data to
+ 	 	 	  send data to LCD controller
+ ------------------------------------------------*/
+
+void lcd_write(int data)
+{
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_BASE, data | 0b00100000000);	// write data and command
+	myusleep();
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_BASE, data & 0b11011111111);	// just set bit EN (1->0) to recognize data sent
+	myusleep();
+}
+
+/*------------------------------------------------/
+ Name:				lcd_cmd
+ Description: send command to LCD controller
+ ------------------------------------------------*/
+
+void lcd_cmd(char cmd)
+{
+	lcd_write(0b00100000000 + cmd);
+}
+
+/*------------------------------------------------/
+ Name:				lcd_data
+ Description: send data to LCD controller
+ ------------------------------------------------*/
+
+void lcd_data(char data)
+{
+	lcd_write(0b10100000000 + data);
+}
+
+/*------------------------------------------------/
+ Name:				lcd_init
+ Description: Initialize LCD before showing text
+ ------------------------------------------------*/
+
+void lcd_init()
+{
+	lcd_write(0b00100111000);	// Set 2 line on LCD
+
+	lcd_write(0b00100001100);	// Display On/Off control
+
+	lcd_write(0b00100000110);   // Entry mode set
+
+	lcd_write(0b00100000001);   // Clear screen
+}
+
+/*------------------------------------------------/
+ Name:				lcd_printtext
+ Description: print text or string on the screen
+ ------------------------------------------------*/
+
+void lcd_printtext(unsigned char string[])
+{
+	for (int i = 0; i < strlen(string); i++)
+		lcd_data(string[i]);
+}
+
+/*------------------------------------------------/
+ Name:				lcd_setcursor
+ Description: set cursor position on display

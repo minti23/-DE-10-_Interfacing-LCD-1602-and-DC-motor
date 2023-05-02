@@ -1,0 +1,251 @@
+#include <stdio.h>
+#include <altera_avalon_pio_regs.h>
+#include <alt_types.h>
+#include <sys/alt_alarm.h>
+#include <system.h>
+#include <string.h>
+#include <unistd.h>
+
+
+/*-------------------------------------------------------------*/
+void lcd_write(int data)
+{
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_BASE, data | 0b00100000000);
+	myusleep();
+	IOWR_ALTERA_AVALON_PIO_DATA(LCD_BASE, data & 0b11011111111);
+	myusleep();
+}
+void lcd_cmd(char cmd)
+{
+	lcd_write(0b00100000000 + cmd);
+}
+
+void lcd_data(char data) {
+	lcd_write(0b10100000000 + data);
+}
+void lcd_init()
+{
+	//usleep(30000);
+//	lcd_cmd(0x38)
+	lcd_write(0b00100111000);
+	//usleep(10000);
+//	lcd_cmd(0x0C)
+	lcd_write(0b00100001100);	// Display On/Off control
+	//usleep(10000);
+//	lcd_cmd(0x06)
+	lcd_write(0b00100000110);   // Entry mode set
+	//usleep(10000);
+//	lcd_cmd(0x01)
+	lcd_write(0b00100000001);   // Clear screen
+	//usleep(30000);
+}
+
+void lcd_printtext(unsigned char string[]) {
+	for (int i = 0; i < strlen(string); i++)
+		lcd_data(string[i]);
+}
+
+/*Check code again*/
+void lcd_setcursor(char row, char col) {
+	int row_char = 0;
+	if (row == 1) row_char = 64;
+	lcd_cmd(0b00010000000 + row_char + col);
+}
+/*---------------------------------------------------------------*/
+
+//void PrintHW(unsigned char string[]) {
+////	lcd_setcursor(0, 0);
+////	lcd_cmd(0x80);
+//	lcd_printtext(string);
+//}
+
+//void printLine2(){
+//	lcd_setcursor(1, 0);
+////	lcd_cmd(0x80);
+//	lcd_printtext("f: 1KHz DC:    %");
+//}
+/*---------------------------------------------------------------*/
+
+unsigned long HIGH, LOW, wait_time, wait;
+unsigned long now, PWM_mark, PWM_state;
+unsigned long DC;
+
+void myusleep()
+{
+	wait = alt_timestamp();
+	while (alt_timestamp() - wait < 5000) create_PWM();
+}
+
+void update_PWM()
+{
+	//ADJUST f and DC => calculate the number of clocks
+
+	HIGH = 50000*DC/100;
+	LOW = 50000 - HIGH;
+}
+
+void pwm_init()
+{
+	DC = 50;
+	update_PWM();
+	PWM_state = 0;
+	wait_time = LOW;
+	alt_timestamp_start();
+	PWM_mark = alt_timestamp();
+}
+
+void create_PWM()
+{
+	  now = alt_timestamp();
+	  if (now - PWM_mark  >= wait_time)
+	  {
+
+		  PWM_state = !PWM_state;
+
+	  if (PWM_state == 0) wait_time = LOW;
+	  else                wait_time = HIGH;
+
+		  PWM_mark = alt_timestamp();
+	  }
+}
+
+
+/*----------------------------------------------------------------*/
+unsigned char hello[]  = "Hello World !!!";
+unsigned char empty[] = "                ";
+unsigned char paraPWM[]    = "f: 1KHz DC:    %";
+
+
+/*----------------------------------------------------------------*/
+void display_PWM()
+{
+	lcd_setcursor(1,0);
+			  lcd_printtext(paraPWM);
+			  lcd_setcursor(1,12);
+			  unsigned long num = DC;
+			  unsigned long a = num/100;
+			  if (a==0) lcd_printtext(" ");
+			  else lcd_data(a + 0x30);
+			  lcd_setcursor(1,13);
+			  num = num - a*100;
+			  a = num/10;
+			  lcd_data(a+0x30);
+			  num = num - a*10;
+			  a = num/1;
+			  lcd_data(a+0x30);
+}
+
+
+unsigned short lcd_state = 1;
+//alt_u32 helloword_alarm(void *context)
+//{
+//	if (lcd_state == 0)
+//	{
+//		lcd_setcursor(0, 0);
+//		lcd_printtext(empty);
+//	}
+//	else {
+//		lcd_setcursor(0, 0);
+//		lcd_printtext(hello);
+//	}
+//	lcd_state =! lcd_state;
+//return alt_ticks_per_second();
+//}
+
+/*----------------------------------------------------------------*/
+
+
+int main()
+{
+	  static alt_alarm alarm;
+	  //unsigned short MOTOR_state = 0;
+	  pwm_init();
+	  lcd_init();
+
+	  while(1){
+
+/* SWITCH 0 turn on*/
+
+	  if ((IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE)&1)== 0X01)
+	  {
+
+//		  IOWR_ALTERA_AVALON_PIO_DATA (LED_BASE, 0X08);
+		  //printf("Hello from Nios II!\n");
+
+		  				// Init LCD
+//		  alt_alarm_start(&alarm, alt_ticks_per_second(), helloword_alarm, NULL);
+
+
+		  lcd_setcursor(0,1);
+		  lcd_printtext(hello);		// Print "Hello World!!!"
+	  }
+	  else
+	  {
+		  lcd_state = 1;
+		  lcd_setcursor(0,0);
+		  lcd_printtext(empty);
+	  }
+/* CAN ADD CASE OF SWITCH TO CHANGE THE SPEED OF MOTOR*/
+/* SWITCH 1 turn on*/
+
+
+	  if (((IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE) >> 1) & 1) == 1)
+	  {
+
+//		  lcd_setcursor(1,0);
+//		  lcd_printtext(paraPWM);
+//		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  DC = 50;
+		  update_PWM();
+		  create_PWM();
+		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  display_PWM();
+	  }
+	  else if (((IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE) >> 2) & 1) == 1)
+	  {
+//		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  DC = 100;
+		  update_PWM();
+		  create_PWM();
+		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  display_PWM();
+	  }
+	  else if (((IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE) >> 3) & 1) == 1)
+	  {
+//		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  DC = 25;
+		  update_PWM();
+		  create_PWM();
+		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, PWM_state);
+		  display_PWM();
+	  }
+	  else
+	  {
+		  IOWR_ALTERA_AVALON_PIO_DATA(MOTOR_BASE, 0);
+		  lcd_setcursor(1,0);
+		  lcd_printtext(empty);
+	  }
+/*--------------------------------GENERATE PWM PULSES--------------------------------*/
+
+
+/*----------------------------------DISPLAY PARMETER---------------------------------*/
+//	  if (((IORD_ALTERA_AVALON_PIO_DATA(SWITCH_BASE) >> 1) & 1) == 1)
+//	  {
+//		  lcd_setcursor(1,0);
+//		  lcd_printtext(paraPWM);
+//		  lcd_setcursor(1,12);
+//		  unsigned long num = DC;
+//		  unsigned long a = num/100;
+//		  if (a==0) lcd_data(" ");
+//		  else lcd_printtext(a + 0x30);
+//		  lcd_setcursor(1,13);
+//		  num = num - a*100;
+//		  a = num/10;
+//		  lcd_data(a+0x30);
+//		  num = num - a*10;
+//		  lcd_data(num+0x30);
+//	  }
+
+  }
+//  return 0;
+}

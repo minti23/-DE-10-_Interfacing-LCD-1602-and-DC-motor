@@ -1,0 +1,294 @@
+!SESSION 2023-04-11 09:18:29.482 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/quartus/setup/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/quartus/setup/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-04-11 09:18:50.539
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\DELL N7567'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2023-04-11 09:19:05.005
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: Read timed out. ; version: 1.100.0.v20160217-0435
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.security.ssl.InputRecord.readFully(Unknown Source)
+	at sun.security.ssl.InputRecord.read(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source)
+	at sun.security.ssl.AppInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:136)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:152)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:270)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:260)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:161)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:153)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:271)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:254)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.request(IO.java:205)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:68)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-04-11 09:19:25.482
+!MESSAGE Indexed 'final_bsp' (83 sources, 154 headers) in 2.58 sec: 5,267 declarations; 8,600 references; 15 unresolved inclusions; 2 syntax errors; 44 unresolved names (0.32%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-04-11 09:19:26.168
+!MESSAGE Indexed 'final' (1 sources, 0 headers) in 0.004 sec: 1 declarations; 1 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:21:27.681
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:21:29.956
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:23:33.755
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:23:34.179
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:23:36.405
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:24:29.223
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:24:30.212
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:24:32.436
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:27:07.573
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:27:08.026
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:27:10.305
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:29:25.374
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:29:25.815
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:29:28.019
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:31:55.930
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:31:56.378
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:31:58.676
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:33:53.256
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:33:53.683
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:33:55.879
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:38:25.579
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:38:26.044
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:38:28.265
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:41:12.492
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:41:12.965
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:41:15.197
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:42:16.084
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:42:16.473
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 09:42:18.717
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:01:06.515
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:01:06.931
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:01:09.201
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:04:43.703
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:04:44.133
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:04:46.343
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:05:22.947
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:05:23.433
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:05:25.702
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:07:41.486
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:07:41.932
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:07:44.186
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:10:57.216
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:10:57.702
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:10:59.914
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:14:01.089
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:14:01.510
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:14:03.680
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:19:39.252
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:19:39.710
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:19:41.922
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:27:42.849
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:27:43.248
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-11 10:27:45.493
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+!SESSION 2023-04-18 09:23:30.794 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/quartus/setup/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/quartus/setup/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-04-18 09:23:39.939
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-04-18 09:24:09.446
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\DELL N7567'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2023-04-18 09:24:16.161
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:24:55.997
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:24:58.223
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:30:39.975
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:30:40.412
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:30:42.614
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:31:49.773
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:31:50.230
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:31:52.336
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:33:47.759
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:33:48.170
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:33:50.417
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:35:56.427
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [USB-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:35:56.829
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --stop --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-04-18 09:35:58.984
+!MESSAGE Executing: [D:/quartus/setup/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=DE-SoC on localhost [USB-1]' --device=2 --instance=0 --go --sidp=0x4081080 --id=0x4081080 --timestamp=1681004917 /cygdrive/d/Quartus/viXuLy/Mini/Platform_designer/software/final/final.elf]
